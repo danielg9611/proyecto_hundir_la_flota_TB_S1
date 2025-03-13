@@ -3,59 +3,71 @@ import random
 
 
 class Player ():
-    def __init__(self):
+    def __init__(self, user=True):
         self.board = np.full((10,10), '_')
-        self.create_random_ship(3)
-        self.create_random_ship(3)
+        self.user = user
+        self.life = 16
         self.ship_list = []
-    
-    def ship_set(self,coordenates:list):
-        '''Coloca el barco (lista de coordenadas) en la tabla'''
-        for coord in coordenates:
-            self.board[coord] = 'O'
+        self.create_random_ship(2)
+        self.create_random_ship(2)
+        self.create_random_ship(2)
+        self.create_random_ship(3)
+        self.create_random_ship(3)
+        self.create_random_ship(4)
+        self.set_all_ships()
+
+
+    def set_all_ships(self):
+        if self.user == True:
+            for ship in self.ship_list:
+                for coord in ship:
+                    self.board[coord] = 'O'
 
     
     def got_shot_at(self, coordenates):
-        if self.board[coordenates] == 'O':
-            print('Hit')
-            self.board[coordenates] = 'X'
-        else:
-            print('Miss')
-            self.board[coordenates] = 'M'
 
+        for ship in self.ship_list:
+            if coordenates in ship:
+                self.board[coordenates] = "X"
+                print('HIT')
+                return True
+            else:
+                self.board[coordenates] = 'A'
+        print('MISS')
+        
+
+        # if self.board[coordenates] == 'O':
+        #     print('Hit')
+        #     self.board[coordenates] = 'X'
+        # else:
+        #     print('Miss')
+        #     self.board[coordenates] = 'M'
 
     def create_random_ship(self, size):
         ship = []
 
         x = random.choice(range(0,10))
         y = random.choice(range(0,10))
-        coordinates = (y,x)
 
-        ship.append(coordinates)
+        ship.append((x,y))
 
         direction = random.choice(['horizontal','vertical'])
 
         if direction == 'horizontal' and x + size-1 < 10:
             while len(ship) < size:
                 x+=1
-                ship.append((y,x))
+                ship.append((x,y))
         elif direction == 'horizontal' and x - size-1 >= 0:
             while len(ship) < size:
                 x-=1
-                ship.append((y,x))
+                ship.append((x,y))
         elif direction == 'vertical' and y + size-1  < 10:
             while len(ship) < size:
                 y+=1
-                ship.append((y,x))
+                ship.append((x,y))
         elif direction == 'vertical' and y - size-1 >= 0:
             while len(ship) < size:
                 y-=1
-                ship.append((y,x))
+                ship.append((x,y))
 
-        print(ship)
-
-        self.ship_set(ship)
-
-    def create_set_ship_list(self):
-        pass
-
+        self.ship_list.append(ship)
