@@ -34,14 +34,7 @@ class Player ():
             else:
                 self.board[coordenates] = 'A'
         print('MISS')
-        
 
-        # if self.board[coordenates] == 'O':
-        #     print('Hit')
-        #     self.board[coordenates] = 'X'
-        # else:
-        #     print('Miss')
-        #     self.board[coordenates] = 'M'
 
     def create_random_ship(self, size):
         ship = []

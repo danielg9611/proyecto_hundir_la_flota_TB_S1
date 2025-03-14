@@ -7,9 +7,6 @@ player = Player()
 pc = Player(user=False)
 
 
-print(pc.ship_list)
-
-
 def juego():
     print(art.art)
     print("\tBIENVENIDO A HUNDIR LA FLOTA")
@@ -56,4 +53,8 @@ juego()
 
 
 
+## TODO: Hacer que los barcos no se superpongan
 
+## TODO: Hacer que la maquina tenga una logica de juego [si el disparo es hit disparar a las casillas adjacentes]
+
+## TODO: 
