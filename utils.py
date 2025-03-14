@@ -1,4 +1,4 @@
-import random
+import random, time
 
 def print_boards(board_player,board_pc):
     print('\n')
@@ -17,13 +17,13 @@ def print_boards(board_player,board_pc):
     print(f'--------------------------', ' \t\t', f'--------------------------')
 
 
-def shoot_at(player):
+def shoot_at(player, board_player,board_pc):
 
     coordenates = (random.choice(range(10)), random.choice(range(10)))
     
     if player.user == False:
         try:
-            coordenates = input('Escribe las coordenadas a donde quieres disparar ej.(0,0) : ')
+            coordenates = input('Escribe las coordenadas a donde quieres disparar ej.(1,1) : ')
             coordenates = coordenates.replace('(', '').replace(')','').split(',')
             for i in range(2):
                 coordenates[i] = int(coordenates[i]) - 1
@@ -33,7 +33,7 @@ def shoot_at(player):
         except:
             print("ERROR EN EL INPUT. SOLO SE ACEPTAN VALORES DE : X,Y o (X,Y)")
             print("INTENTALO DE NUEVO")
-            shoot_at(player)
+            shoot_at(player, board_player, board_pc)
             return
 
     elif player.user == True:
@@ -43,7 +43,9 @@ def shoot_at(player):
             coordenates = (x,y)
 
     if player.got_shot_at(coordenates):
+        print_boards(board_player,board_pc)
+        time.sleep(1)
         if player.user == False:
             print('Tienes otro tiro, intentalo de nuevo')
-        shoot_at(player)
+        shoot_at(player, board_player, board_pc)
     

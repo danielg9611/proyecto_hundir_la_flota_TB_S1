@@ -3,13 +3,12 @@ from player import Player
 from utils import *
 
 
-player = Player()
-pc = Player(user=False)
 
-print(pc.ship_list)
 def juego():
-    player.life = 16
-    pc.life = 16
+
+    player = Player()
+    pc = Player(user=False)
+
     print(art.art)
     print("\tBIENVENIDO A HUNDIR LA FLOTA")
     print("\tES TU TURNO")
@@ -19,8 +18,9 @@ def juego():
 
         ### PLAYER TURN ###
 
-        shoot_at(pc)
+        shoot_at(pc, player.board,pc.board)
         print()
+        time.sleep(.5)
         print_boards(player.board,pc.board)   
         print()
         time.sleep(1)
@@ -32,7 +32,8 @@ def juego():
         print('pensando...')
         print()
         time.sleep(2)
-        shoot_at(player)
+        shoot_at(player, 
+        player.board,pc.board)
         print()
         print_boards(player.board,pc.board)   
         print()
@@ -54,6 +55,5 @@ def juego():
 juego()
 
 
-## TODO: Imprimir la tabla despues de cada disparo del jugador
 
 ## TODO: Hacer que la maquina tenga una logica de juego [si el disparo es hit disparar a las casillas adjacentes]

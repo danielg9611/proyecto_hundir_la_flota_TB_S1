@@ -79,7 +79,6 @@ class Player ():
             for setted_ship in self.ship_list:
                 for setted_ship_part in setted_ship:
                     if setted_ship_part in ship:
-                        print('they join')
                         is_valid = False
                         continue
 
