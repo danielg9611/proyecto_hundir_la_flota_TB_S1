@@ -31,13 +31,20 @@ class Player ():
                 self.board[coordenates] = "X"
                 print('HIT')
                 self.life -= 1
+
+                if self.check_ship_destroyed(ship):
+                    for coord in ship:
+                        self.board[coord] = 'Z'
+
                 return True
             else:
                 self.board[coordenates] = 'A'
         print('MISS')
 
 
+
     def create_random_ship(self, size):
+
         
         is_valid = False
 
@@ -77,3 +84,15 @@ class Player ():
                         continue
 
         self.ship_list.append(ship)
+
+    def check_ship_destroyed(self, ship):
+        solution = False
+        for coord in ship:
+            if self.board[coord] != 'X':
+                solution = False
+                break
+            else:
+                solution = True
+        return solution
+
+

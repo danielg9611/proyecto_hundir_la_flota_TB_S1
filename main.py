@@ -6,7 +6,7 @@ from utils import *
 player = Player()
 pc = Player(user=False)
 
-
+print(pc.ship_list)
 def juego():
     player.life = 16
     pc.life = 16
@@ -54,7 +54,6 @@ def juego():
 juego()
 
 
-
-## TODO: Hacer que los barcos no se superpongan
+## TODO: Imprimir la tabla despues de cada disparo del jugador
 
 ## TODO: Hacer que la maquina tenga una logica de juego [si el disparo es hit disparar a las casillas adjacentes]

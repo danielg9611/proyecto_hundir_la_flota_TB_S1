@@ -22,13 +22,19 @@ def shoot_at(player):
     coordenates = (random.choice(range(10)), random.choice(range(10)))
     
     if player.user == False:
-        coordenates = input('Escribe las coordenadas a donde quieres disparar ej.(0,0) : ')
-        coordenates = coordenates.replace('(', '').replace(')','').split(',')
-        for i in range(2):
-            coordenates[i] = int(coordenates[i]) - 1
-            coordenates[i] = max(0, min(coordenates[i], 9))
+        try:
+            coordenates = input('Escribe las coordenadas a donde quieres disparar ej.(0,0) : ')
+            coordenates = coordenates.replace('(', '').replace(')','').split(',')
+            for i in range(2):
+                coordenates[i] = int(coordenates[i]) - 1
+                coordenates[i] = max(0, min(coordenates[i], 9))
 
-        coordenates = tuple(coordenates[::-1])
+            coordenates = tuple(coordenates[::-1])
+        except:
+            print("ERROR EN EL INPUT. SOLO SE ACEPTAN VALORES DE : X,Y o (X,Y)")
+            print("INTENTALO DE NUEVO")
+            shoot_at(player)
+            return
 
     elif player.user == True:
         while player.board[coordenates] is 'X' or player.board[coordenates] is 'A':
