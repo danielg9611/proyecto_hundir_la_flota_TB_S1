@@ -30,6 +30,7 @@ class Player ():
             if coordenates in ship:
                 self.board[coordenates] = "X"
                 print('HIT')
+                self.life -= 1
                 return True
             else:
                 self.board[coordenates] = 'A'
@@ -37,30 +38,42 @@ class Player ():
 
 
     def create_random_ship(self, size):
-        ship = []
+        
+        is_valid = False
 
-        x = random.choice(range(0,10))
-        y = random.choice(range(0,10))
+        while not is_valid:
+            ship = []
+            is_valid = True
 
-        ship.append((x,y))
+            x = random.choice(range(0,10))
+            y = random.choice(range(0,10))
 
-        direction = random.choice(['horizontal','vertical'])
+            ship.append((x,y))
 
-        if direction == 'horizontal' and x + size-1 < 10:
-            while len(ship) < size:
-                x+=1
-                ship.append((x,y))
-        elif direction == 'horizontal' and x - size-1 >= 0:
-            while len(ship) < size:
-                x-=1
-                ship.append((x,y))
-        elif direction == 'vertical' and y + size-1  < 10:
-            while len(ship) < size:
-                y+=1
-                ship.append((x,y))
-        elif direction == 'vertical' and y - size-1 >= 0:
-            while len(ship) < size:
-                y-=1
-                ship.append((x,y))
+            direction = random.choice(['horizontal','vertical'])
+
+            if direction == 'horizontal' and x + size-1 < 10:
+                while len(ship) < size:
+                    x+=1
+                    ship.append((x,y))
+            elif direction == 'horizontal' and x - size-1 >= 0:
+                while len(ship) < size:
+                    x-=1
+                    ship.append((x,y))
+            elif direction == 'vertical' and y + size-1  < 10:
+                while len(ship) < size:
+                    y+=1
+                    ship.append((x,y))
+            elif direction == 'vertical' and y - size-1 >= 0:
+                while len(ship) < size:
+                    y-=1
+                    ship.append((x,y))
+
+            for setted_ship in self.ship_list:
+                for setted_ship_part in setted_ship:
+                    if setted_ship_part in ship:
+                        print('they join')
+                        is_valid = False
+                        continue
 
         self.ship_list.append(ship)
