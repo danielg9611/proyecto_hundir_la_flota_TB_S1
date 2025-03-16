@@ -16,15 +16,23 @@ def juego():
 
     while player.life > 0 and pc.life > 0:
 
-        ### PLAYER TURN ###
+        ### DEBUG ###
 
-        shoot_at(pc, player.board,pc.board)
+        # print(pc.ship_list)
+
+        #############
+
+
+        ### PLAYER TURN ###
+        
+        player.shoot_at(pc, player.board,pc.board)
         print()
         time.sleep(.5)
         print_boards(player.board,pc.board)   
         print()
         time.sleep(1)
-
+        if pc.life == 0:
+            break
 
         ### PC TURN ###
 
@@ -32,8 +40,7 @@ def juego():
         print('pensando...')
         print()
         time.sleep(2)
-        shoot_at(player, 
-        player.board,pc.board)
+        pc.shoot_at(player, player.board,pc.board)
         print()
         print_boards(player.board,pc.board)   
         print()
