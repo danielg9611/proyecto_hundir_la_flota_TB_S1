@@ -9,7 +9,6 @@ El proyecto tiene la siguiente estructura de archivos:
 - `art.py`: Contiene el arte ASCII que se muestra al inicio del juego.
 - `main.py`: Contiene la lógica principal del juego.
 - `player.py`: Define la clase `Player` que maneja la lógica de los jugadores, tanto humano como computadora.
-- `test.py`: Contiene ejemplos de tableros para pruebas.
 - `utils.py`: Contiene funciones utilitarias, como la función `print_boards` para imprimir los tableros.
 
 ## Cómo Jugar
@@ -17,7 +16,7 @@ El proyecto tiene la siguiente estructura de archivos:
 1. Clona el repositorio en tu máquina local.
 2. Asegúrate de tener Python instalado.
 3. Ejecuta el archivo `main.py` para iniciar el juego:  
-  .En la terminal escribe lo siguiente en el directorio del codigo
+    - En la terminal escribe lo siguiente en el directorio del codigo
 
 ```sh
 python main.py
@@ -76,8 +75,7 @@ Si deseas contribuir a este proyecto, por favor sigue los siguientes pasos:
 
 ## Licencia
 
-Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.  
-
+Este proyecto está bajo la Licencia MIT.
 .
   
 ______________  
