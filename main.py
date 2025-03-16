@@ -55,15 +55,4 @@ def juego():
     if volver_a_jugar.lower() == 'y' or volver_a_jugar.lower() == 'yes':
         juego()
 
-
-
-
-
 juego()
-
-
-
-## TODO: Hacer que la maquina tenga una logica de juego [si el disparo es hit disparar a las casillas adjacentes]
-
-    # poner la funcion shoot_at() dentro del objeto Player()
-    # dentro de la funcion shoot_at(), cuando es hit, llamar a otra funcion que es la que tendra la logica de la PC

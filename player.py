@@ -97,14 +97,7 @@ class Player ():
             else:
                 solution = True
         return solution
-
-
-
-
-
-####  0<  X,Y  <9
-
-
+    
 
     def next_shot(self,player, direction = None):
         """
@@ -169,15 +162,6 @@ class Player ():
         return None
 
 
-
-    """          NEXT SHOT
-    Si el barco del ultimo disparo no ha sido destruido, dispara, la prrimera vez a una casilla adyacente random, la segunda vez a la casilla adyacente en la direccion del ultimo disparo
-
-    La funcion devuelve las coordenadas de la casilla a disparar y la direccion del siguiente disparo
-
-    Si el barco esta destruido, la funcion devuelve None y resetea las variables lasthit y next_shot_direction
-    """
-
     def shoot_at(self, player, board_player, board_pc, coord = None):
 
         if coord == None:
@@ -232,4 +216,3 @@ class Player ():
             else:
                 self.next_shot_direction = None
                 # self.lasthit = None 
-                    

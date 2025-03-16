@@ -15,6 +15,3 @@ def print_boards(board_player,board_pc):
 
         # print(board_player[i], '\t\t', board_pc[i])
     print(f'--------------------------', ' \t\t', f'--------------------------')
-
-
-
