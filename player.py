@@ -34,8 +34,6 @@ class Player ():
                 self.board[coordenates] = "X"
                 print('HIT')
                 self.life -= 1
-                print(f'VIDAS RESTANTES: {self.life}')
-
                 if self.check_ship_destroyed(ship):
                     for coord in ship:
                         self.board[coord] = 'Z'
@@ -118,7 +116,7 @@ class Player ():
                         direction = random.choice(['up','down','left','right'])
                     else :
                         direction = direction
-
+                    print(direction)
                     match direction:
                         case 'left':
                             if y > 0 and player.board[(x,y-1)] == 'O' and player.board[(x,y-1)] != '_':
